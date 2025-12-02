@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 광주교육협치회의 워크숍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- 마크다운 렌더링을 위한 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e5e7eb;
+            z-index: 0;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Chatbot & Modal Styles */
+        .chat-message {
+            max-width: 80%;
+            margin-bottom: 10px;
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .user-message {
+            background-color: #2563eb;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        .bot-message {
+            background-color: #f3f4f6;
+            color: #1f2937;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        .typing-indicator span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #9ca3af;
+            border-radius: 50%;
+            animation: typing 1s infinite;
+            margin: 0 2px;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="max-w-md mx-auto bg-white min-h-screen shadow-lg relative pb-24">
+        
+        <!-- Header / Main Cover -->
+        <header class="relative h-64 bg-blue-900 text-white overflow-hidden">
+            <div class="absolute inset-0 bg-black opacity-40 z-10"></div>
+            <!-- 배경 이미지 -->
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop" alt="워크숍 배경" class="absolute inset-0 w-full h-full object-cover">
+            
+            <div class="absolute inset-0 z-20 flex flex-col justify-end p-6">
+                <span class="bg-blue-600 text-xs font-bold px-2 py-1 rounded w-fit mb-2">2025 광주교육협치회의</span>
+                <h1 class="text-3xl font-bold leading-tight mb-1">워크숍<br>프로그램 런북</h1>
+                <p class="text-sm opacity-90"><i class="far fa-calendar-alt mr-1"></i> 2025년 12월 9일 (화요일)</p>
+                <p class="text-sm opacity-90"><i class="fas fa-map-marker-alt mr-1"></i> 전주 일원</p>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs (Sticky) -->
+        <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 flex text-xs font-medium text-gray-500">
+            <a href="#schedule" class="flex-1 py-4 text-center border-b-2 border-blue-600 text-blue-600 hover:bg-gray-50 transition">일정표</a>
+            <a href="#locations" class="flex-1 py-4 text-center hover:text-blue-600 hover:bg-gray-50 transition">장소</a>
+            <a href="#check" class="flex-1 py-4 text-center hover:text-blue-600 hover:bg-gray-50 transition">준비물</a>
+            <a href="#fun" class="flex-1 py-4 text-center hover:text-blue-600 hover:bg-gray-50 transition"><i class="fas fa-sparkles text-yellow-500 mr-1"></i>AI존</a>
+        </nav>
+
+        <!-- Section 1: Schedule -->
+        <section id="schedule" class="p-6 pt-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-bold text-gray-900">상세 일정</h2>
+                <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">총 1일 일정</span>
+            </div>
+
+            <div class="relative pl-4 space-y-8">
+                <!-- Vertical Line -->
+                <div class="timeline-line"></div>
+
+                <!-- Time Item: 집결 -->
+                <div class="relative z-10 flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center border-4 border-white shadow-sm font-bold text-xs">
+                            08:40
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+                        <h3 class="font-bold text-lg text-gray-900">집결 및 인원파악</h3>
+                        <p class="text-sm text-blue-600 font-medium mb-1">08:40 ~ 09:00 (20')</p>
+                        <p class="text-sm text-gray-600"><i class="fas fa-bus mr-1"></i> 시민협치진흥원 주차장</p>
+                        <div class="mt-2 text-xs bg-red-50 text-red-600 px-2 py-1 rounded inline-block">
+                            <i class="fas fa-exclamation-circle mr-1"></i>시간 엄수 부탁드립니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Time Item: 이동 -->
+                <div class="relative z-10 flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center border-4 border-white shadow-sm font-bold text-xs">
+                            09:00
+                        </div>
+                    </div>
+                    <div class="flex-1 pt-1">
+                        <h3 class="font-bold text-gray-800">전주로 이동</h3>
+                        <p class="text-sm text-gray-500">약 90분 소요 (휴게소 경유 없음)</p>
+                    </div>
+                </div>
+
+                <!-- Time Item: 도착 및 강의 -->
+                <div class="relative z-10 flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center border-4 border-white shadow-sm font-bold text-xs">
+                            10:30
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-lg text-gray-900">워크숍 & 강의</h3>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">호텔 사임당홀</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mb-2">10:30 ~ 12:00</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• 위촉장 수여 (20')</li>
+                            <li>• <strong>협치 인문학 강의</strong> (김승수 전 전주시장)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Time Item: 중식 -->
+                <div class="relative z-10 flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center border-4 border-white shadow-sm font-bold text-xs">
+                            12:00
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+                        <h3 class="font-bold text-lg text-gray-900">중식 및 다과</h3>
+                        <p class="text-sm text-gray-500">호텔 내 한정식</p>
+                        <p class="text-xs text-blue-600 mt-2 font-medium bg-blue-50 p-2 rounded">
+                            <i class="fas fa-mug-hot mr-1"></i>식사 후 호텔 카페 음료 제공
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Time Item: 탐방 -->
+                <div class="relative z-10 flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center border-4 border-white shadow-sm font-bold text-xs">
+                            13:30
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+                        <h3 class="font-bold text-lg text-gray-900">협치사례기관 방문</h3>
+                        <p class="text-sm text-gray-500 mb-2">13:30 ~ 15:30 (120')</p>
+                        <div class="space-y-2">
+                            <div class="bg-gray-50 p-2 rounded text-sm border-l-4 border-purple-400">
+                                <span class="font-bold block">1. 아중호수도서관</span>
+                                <span class="text-xs text-gray-500">60분 소요</span>
+                            </div>
+                            <div class="bg-gray-50 p-2 rounded text-sm border-l-4 border-purple-400">
+                                <span class="font-bold block">2. 책기둥도서관</span>
+                                <span class="text-xs text-gray-500">30분 소요 (전주시청 내)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Time Item: 문화체험 -->
+                <div class="relative z-10 flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center border-4 border-white shadow-sm font-bold text-xs">
+                            15:30
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+                        <h3 class="font-bold text-lg text-gray-900">문화체험 활동</h3>
+                        <p class="text-sm text-gray-500 mb-2">전주 한옥마을 투어</p>
+                        <p class="text-xs text-red-500"><i class="fas fa-map-pin mr-1"></i>하차/집결: 전동성당 앞</p>
+                    </div>
+                </div>
+                 <!-- Time Item: 복귀 -->
+                 <div class="relative z-10 flex gap-4">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center border-4 border-white shadow-sm font-bold text-xs">
+                            16:00
+                        </div>
+                    </div>
+                    <div class="flex-1 pt-1 pb-4">
+                        <h3 class="font-bold text-gray-800">광주로 복귀</h3>
+                        <p class="text-sm text-gray-500">17:30 도착 및 해산 예정</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="h-2 bg-gray-100"></div>
+
+        <!-- Section 2: Locations -->
+        <section id="locations" class="p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-6">주요 장소 안내</h2>
+            
+            <!-- Location Card 1: 시민협치진흥원 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="image_2b23ee.jpg" alt="시민협치진흥원" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">시민협치진흥원</h3>
+                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">집결지</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>주차장 45인승 버스 앞</p>
+                    <a href="https://map.naver.com/p/search/광주광역시 시민협치진흥원" target="_blank" class="block w-full py-2 text-center border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+                        지도 보기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Location Card 2: 왕의지밀 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+                <div class="h-48 bg-gray-200 relative">
+                     <img src="IMG_8316.jpg" alt="왕의지밀 호텔" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">전주 왕의지밀 호텔</h3>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">워크숍/중식</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>호텔 본관 입구 (사임당홀)</p>
+                    <a href="https://map.naver.com/p/search/전주 왕의지밀" target="_blank" class="block w-full py-2 text-center border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+                        지도 보기
+                    </a>
+                </div>
+            </div>
+
+             <!-- Location Card 3: 아중호수도서관 -->
+             <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+                <div class="h-48 bg-gray-200 relative">
+                     <img src="아중호수도서관 입구.jpg" alt="아중호수도서관" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">아중호수도서관</h3>
+                        <span class="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-1 rounded">탐방 1</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>공용주차장 하차</p>
+                    <a href="https://map.naver.com/p/search/전주 아중호수도서관" target="_blank" class="block w-full py-2 text-center border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+                        지도 보기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Location Card 4: 책기둥도서관 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+                <div class="h-48 bg-gray-200 relative">
+                     <img src="책기둥도서관 내부.jpg" alt="책기둥도서관" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">책기둥도서관</h3>
+                        <span class="text-xs font-bold text-purple-600 bg-purple-50 px-2 py-1 rounded">탐방 2</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>전주시청 별관 로비 1층</p>
+                    <a href="https://map.naver.com/p/search/전주시청 책기둥도서관" target="_blank" class="block w-full py-2 text-center border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+                        지도 보기
+                    </a>
+                </div>
+            </div>
+
+            <!-- Location Card 5: 전동성당 -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6">
+                <div class="h-48 bg-gray-200 relative">
+                     <img src="image_2ac9f7.png" alt="전동성당" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">전주 한옥마을 (전동성당)</h3>
+                        <span class="text-xs font-bold text-pink-600 bg-pink-50 px-2 py-1 rounded">문화체험</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>전동성당 정문 앞 (하차/집결)</p>
+                    <a href="https://map.naver.com/p/search/전동성당" target="_blank" class="block w-full py-2 text-center border border-gray-300 rounded-lg text-sm font-medium hover:bg-gray-50 transition">
+                        지도 보기
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="h-2 bg-gray-100"></div>
+
+        <!-- Section 3: Checklist -->
+        <section id="check" class="p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">체크리스트</h2>
+            <div class="bg-yellow-50 rounded-xl p-5 border border-yellow-100">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                        <span class="text-sm text-gray-700"><strong>신분증:</strong> 비상 상황 대비 지참</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                        <span class="text-sm text-gray-700"><strong>편한 복장/신발:</strong> 한옥마을 도보 이동 시 필요</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                        <span class="text-sm text-gray-700"><strong>구급 상비약:</strong> 버스 내부 비치, 필요시 문의</span>
+                    </li>
+                </ul>
+
+                </ul>
+            </div>
+        </section>
+
+        <div class="h-2 bg-gray-100"></div>
+
+        <!-- Section 4: AI Fun Zone -->
+        <section id="fun" class="p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <i class="fas fa-laugh-squint text-yellow-500 mr-2"></i>✨ AI 협치 N행시
+            </h2>
+            <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-100 text-center mb-8">
+                <p class="text-sm text-gray-600 mb-4">이동하는 버스 안이 심심하신가요?<br><strong>'협치', '교육', '전주'</strong> 등으로 N행시를 지어보세요!</p>
+                <div class="flex gap-2">
+                    <input type="text" id="poemTopic" placeholder="제시어 입력 (예: 협치)" class="flex-1 px-4 py-2 rounded-lg border border-gray-300 text-sm focus:outline-none focus:border-purple-500">
+                    <button onclick="generatePoem()" class="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-purple-700 transition">생성</button>
+                </div>
+                <div id="poemResult" class="mt-4 text-left bg-white p-4 rounded-lg shadow-sm hidden">
+                    <!-- 결과가 여기에 표시됩니다 -->
+                </div>
+            </div>
+
+            <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                <i class="fas fa-robot text-blue-500 mr-2"></i>🤖 AI 가이드에게 질문하기
+            </h2>
+            
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm h-96 flex flex-col overflow-hidden">
+                <div id="chatHistory" class="flex-1 p-4 overflow-y-auto bg-gray-50 flex flex-col space-y-3 hide-scrollbar">
+                    <div class="bot-message chat-message">
+                        안녕하세요! 이번 워크숍의 AI 가이드입니다. 일정, 장소, 식사 메뉴 등 무엇이든 물어보세요! 😊
+                    </div>
+                </div>
+                <div class="p-3 bg-white border-t border-gray-100">
+                    <div class="flex gap-2">
+                        <input type="text" id="userQuery" placeholder="질문을 입력하세요..." class="flex-1 px-4 py-2 bg-gray-100 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" onkeypress="handleKeyPress(event)">
+                        <button onclick="sendMessage()" class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition shadow-sm">
+                            <i class="fas fa-paper-plane text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Closing (New!) -->
+        <section id="finish" class="px-6 pb-12 pt-4">
+            <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 text-white shadow-lg text-center p-8">
+                <!-- Decorative Circle -->
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-white opacity-10 rounded-full"></div>
+                <div class="absolute bottom-10 -left-10 w-24 h-24 bg-white opacity-10 rounded-full"></div>
+                
+                <i class="fas fa-quote-left text-3xl opacity-30 mb-4 block"></i>
+                <h3 class="text-2xl font-bold mb-2 tracking-tight">함께 여는 미래,<br>광주교육협치</h3>
+                <div class="w-12 h-1 bg-white mx-auto my-4 opacity-50 rounded-full"></div>
+                <p class="text-sm opacity-90 leading-relaxed mb-6">
+                    오늘 하루, 위원님들의 열정적인 참여 덕분에 더 밝은 광주 교육의 미래를 그릴 수 있었습니다. 감사합니다. <br>
+                </p>
+                <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-medium border border-white/30">
+                    2025 광주교육협치회의 워크숍
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Contact -->
+        <footer class="bg-gray-800 text-white p-6 pb-10 text-center rounded-t-2xl">
+            <p class="text-sm font-medium mb-4 text-gray-300">문의사항이 있으신가요?</p>
+            <div class="flex justify-center gap-2 mb-6">
+                <!-- 담당자 전화번호 연결 수정됨 -->
+                <a href="tel:01025323060" class="flex items-center gap-2 px-4 py-2 bg-gray-700 rounded-full hover:bg-gray-600 transition text-sm">
+                    <i class="fas fa-phone-alt"></i> 담당자 연결
+                </a>
+            </div>
+            <p class="text-xs text-gray-500">2025 광주교육협치회의 워크숍<br>Copyright ©bezerostudio</p>
+        </footer>
+
+        <!-- Scroll Top Button -->
+        <a href="#" class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 transition z-50">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+
+    </div>
+
+    <script>
+        // --- Configuration ---
+        const apiKey = "AIzaSyDXUathT8wOd9rEeUYoNCkRVcUjCb7l2JA"; // 적용된 API Key
+
+        // --- UI Logic ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                
+                // 예외 처리: href가 단순히 "#"인 경우 (맨 위로 가기 버튼 등)
+                if (targetId === '#') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // 그 외: 해당 ID를 가진 섹션으로 이동
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        // --- AI Logic (Gemini) ---
+        async function callGemini(prompt) {
+            if (!apiKey) {
+                alert("API 키가 설정되지 않았습니다. 코드 내 'apiKey' 변수에 키를 입력해주세요.");
+                return "API 키를 확인해주세요.";
+            }
+
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }]
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await response.json();
+                return data.candidates[0].content.parts[0].text;
+            } catch (error) {
+                console.error("Error:", error);
+                return "죄송합니다. 오류가 발생했습니다. 잠시 후 다시 시도해주세요.";
+            }
+        }
+
+        // 1. N행시 생성
+        async function generatePoem() {
+            const topic = document.getElementById('poemTopic').value;
+            if (!topic) return alert("제시어를 입력해주세요!");
+
+            const resultDiv = document.getElementById('poemResult');
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
+
+            const prompt = `제시어 '${topic}'(으)로 재치있고 희망찬 N행시를 지어줘. 광주교육협치회의 워크숍 분위기에 맞게 작성해줘.`;
+            const response = await callGemini(prompt);
+            
+            // 마크다운 변환하여 표시
+            resultDiv.innerHTML = marked.parse(response);
+        }
+
+        // 2. 챗봇
+        const context = `
+            너는 '2025 광주교육협치회의 워크숍'의 친절한 AI 가이드야.
+            [행사 개요]
+            - 일시: 2025년 12월 9일 (화요일) 08:40~18:00
+            - 장소: 전주 일원
+            - 주요 일정: 시민협치진흥원 집결(08:40) -> 왕의지밀 호텔(강의/중식) -> 아중호수도서관 -> 책기둥도서관 -> 한옥마을(전동성당) -> 복귀
+            [상세 정보]
+            - 점심: 호텔 한정식 (식사 후 카페 이용 가능)
+            - 준비물: 신분증, 편한 복장/신발
+            - 문의: 총괄 담당자 (010-2532-3060)
+            위 정보를 바탕으로 참가자의 질문에 친절하고 간결하게 답변해줘. 모르는 내용은 솔직히 모른다고 하고 담당자에게 문의하라고 해.
+        `;
+
+        async function sendMessage() {
+            const input = document.getElementById('userQuery');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const chatHistory = document.getElementById('chatHistory');
+            
+            // User Message
+            chatHistory.innerHTML += `<div class="user-message chat-message">${message}</div>`;
+            input.value = '';
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            // Loading
+            const loadingId = 'loading-' + Date.now();
+            chatHistory.innerHTML += `<div id="${loadingId}" class="bot-message chat-message"><div class="typing-indicator"><span></span><span></span><span></span></div></div>`;
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            // API Call
+            const prompt = `${context}\n\n참가자 질문: ${message}`;
+            const response = await callGemini(prompt);
+
+            // Bot Response
+            document.getElementById(loadingId).remove();
+            chatHistory.innerHTML += `<div class="bot-message chat-message">${marked.parse(response)}</div>`;
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+    </script>
+</body>
+</html>
